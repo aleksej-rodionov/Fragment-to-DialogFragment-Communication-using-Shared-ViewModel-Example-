@@ -12,7 +12,8 @@ The example of using Shared VewModel for DialogFragments to MainFragment Communi
 
 Shared ViewModel:
 
-```class EditTransactionViewModel(
+```
+class EditTransactionViewModel(
     private val state: SavedStateHandle
 ) : ViewModel() {
     val sdf = SimpleDateFormat("dd.MM.yy", Locale.getDefault())
@@ -40,11 +41,13 @@ Shared ViewModel:
     //=====================DEBTS========================================
     var debtReduced = state.getLiveData("debtReduced", "")
 
-}```
+}
+```
   
 MainFragment:
   
-  ```class EditTransactionFragment : Fragment(R.layout.fragment_edit_transacion) {
+```
+class EditTransactionFragment : Fragment(R.layout.fragment_edit_transacion) {
     private val viewModel: EditTransactionViewModel by viewModels()
     private lateinit var binding: FragmentEditTransacionBinding
 
@@ -84,11 +87,13 @@ MainFragment:
             }
         }
     }
-}```
+}
+```
 
 DatePickerDialogFragment:
 
-```class DatePickerDIalog : DialogFragment(), DatePickerDialog.OnDateSetListener {
+```
+class DatePickerDIalog : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
     companion object {
         const val TAG = "DatePickerDialog"
@@ -117,11 +122,13 @@ DatePickerDialogFragment:
         val newDateFormatted = sdf.format(newCalendar.timeInMillis)
         viewModel.dateFormatted.value = newDateFormatted
     }
-}```
+}
+```
 
 ChooseCategoryDialogFragment:
 
-```class CategoryDialog : DialogFragment(), MyRecyclerViewAdapter.OnItemClickListener {
+```
+class CategoryDialog : DialogFragment(), MyRecyclerViewAdapter.OnItemClickListener {
 
     companion object {
         const val TAG = "DatePickerDialog"
@@ -189,4 +196,5 @@ ChooseCategoryDialogFragment:
         super.onDestroyView()
         _binding = null
     }
-}```
+}
+```
